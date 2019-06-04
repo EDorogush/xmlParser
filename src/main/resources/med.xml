@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:medicines xmlns:tns="http://www.example.com/Medicines"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.example.com/Medicines med.xsd ">
+
+<!--<medicines>-->
+    <medicine login="aaa999" >
+        <name>aspirin</name>
+        <pharm>hho</pharm>
+        <group>antibiotic</group>
+<!--        <Analogs>-->
+<!--            <Analog>1</Analog>-->
+<!--            <Analog>2</Analog>-->
+<!--        </Analogs>-->
+<!--        <Versions>-->
+<!--            <Version>-->
+<!--                <type>pills</type>>-->
+<!--                <producers>-->
+<!--                    <producer>-->
+<!--                        <certificate>1234:232</certificate>-->
+<!--                        <package>box</package>-->
+<!--                        <dosage>100</dosage>-->
+<!--                    </producer>-->
+
+<!--                </producers>-->
+
+
+<!--            </Version>-->
+
+<!--        </Versions>-->
+    </medicine>
+    <medicine login="aaa888" >
+    <name>alkas</name>
+    <pharm>hhddko</pharm>
+    <group>antihistamine</group>
+    </medicine>
+</tns:medicines>
+

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:tns="http://www.example.com/Medicines"
+        xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.com/Medicines">
+
+    <element name="medicines">
+        <complexType>
+            <sequence>
+                <element name="medicine" type="tns:Medicine" minOccurs="1" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Medicine">
+        <sequence>
+            <element name="tradeName" type="string"/>
+            <element name="realName" type="string"/>
+            <element name="pharm">
+                <complexType>
+                    <all>
+                        <element name="certificate">
+                            <complexType>
+                                <sequence>
+                                    <element name="number">
+                                        <simpleType>
+                                            <restriction base="positiveInteger"/>
+                                        </simpleType>
+                                    </element>
+                                    <element name="issueDate" type="date"/>
+                                    <element name="expDate" type="date"/>
+                                    <element name="authority" type="string"/>
+                                </sequence>
+                            </complexType>
+                        </element>
+                        <element name="address" type="tns:addressType"/>
+                    </all>
+                </complexType>
+            </element>
+            <element name="group">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="antibiotic"/>
+                        <enumeration value="antidepressant"/>
+                        <enumeration value="antihistamine"/>
+                        <enumeration value="homeopathy"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="analogs">
+                <complexType>
+                    <sequence>
+                        <element name="analog" type="string" minOccurs="0" maxOccurs="5"/>
+                    </sequence>
+                    <attribute name="pharm" type="string" use="required"/>
+                </complexType>
+            </element>
+            <element name="releaseForm" type="tns:releaseFormType"/>
+            <element name="dosingInstructions" type="string"/>
+            <element name="expDate" type="date"/>
+        </sequence>
+        <attribute name="id" type="ID" use="required"/>
+    </complexType>
+
+
+    <complexType name="addressType">
+        <sequence>
+            <element name="country" type="string"/>
+            <element name="city" type="string"/>
+            <element name="street" type="string"/>
+        </sequence>
+        <attribute name="phone" type="tns:phoneType"/>
+    </complexType>
+
+    <simpleType name="phoneType">
+        <restriction base="string">
+            <pattern value="[0-9]{3}-[0-9]{7}"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="releaseFormType">
+        <all>
+            <element name="consistency">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="liquid"/>
+                        <enumeration value="pills"/>
+                        <enumeration value="capsule"/>
+                        <enumeration value="suspension"/>
+                        <enumeration value="drops"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="packaging">
+                <complexType>
+                    <choice>
+                        <element name="volume">
+                            <simpleType>
+                                <restriction base="positiveInteger">
+                                    <maxInclusive value="1000"/>
+                                </restriction>
+                            </simpleType>
+                        </element>
+                        <element name="quantity" type="positiveInteger"/>
+                        <element name="mass" type="positiveInteger"/>
+                    </choice>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+
+
+    <!--    <simpleType name="GroupSet">-->
+    <!--        <restriction base="string">-->
+    <!--            <enumeration value="antibiotic"/>-->
+    <!--            <enumeration value="antidepressant"/>-->
+    <!--            <enumeration value="antihistamine"/>-->
+    <!--            <enumeration value="homeopathy"/>-->
+    <!--        </restriction>-->
+    <!--    </simpleType>-->
+
+    <!--    <complexType name="AntibioticGroup">-->
+    <!--        <choice-->
+    <!--    </complexType>-->
+
+    <!--    <simpleType name="antibiotics">-->
+    <!--        <restriction base="string">-->
+    <!--            <enumeration value="penicilline"/>-->
+    <!--            <enumeration value="cephalosporine"/>-->
+    <!--            <enumeration value="tetracycline"/>-->
+    <!--            <enumeration value="macrolide"/>-->
+    <!--        </restriction>-->
+    <!--    </simpleType>-->
+
+    <!--    <complexType name="certificateType">-->
+    <!--        <sequence>-->
+    <!--            <element name="number">-->
+    <!--                <simpleContent>-->
+    <!--                    <restriction base="positiveInteger"/>-->
+    <!--                </simpleContent>-->
+    <!--            </element>-->
+    <!--            <element name="issueDate" type="date"/>-->
+    <!--            <element name="expDate" type="date"/>-->
+    <!--            <element name="authority" type="string"/>-->
+    <!--        </sequence>-->
+    <!--    </complexType>-->
+
+    <!--  <complexType name="AnalogsSet">
+            <sequence>
+                <element name="analog" type="string" minOccurs="1" maxOccurs="5"/>
+            </sequence>
+            <attribute name="pharm" type="string" use="required"/>
+        </complexType>
+    -->
+
+    <!--<complexType name="PharmType">
+            <sequence>
+                <element name="certificate" type="tns:certificateType"/>
+                <element name="address" type="tns:addressType"/>
+            </sequence>
+        </complexType>
+    -->
+
+</schema>
+
+        <!--<complexType name="PharmType">-->
+        <!--<all>-->
+        <!--    <element name="certificate" type="tns:CertificateType"/>-->
+        <!--    <element name="address" type="tns:AddressType"/>-->
+        <!--</all>-->
+        <!--</complexType>-->
+
+        <!--<simpleType name="Login">-->
+        <!--<restriction base="ID">-->
+        <!--    <pattern value="[a-zA-Z]{3}[a-zA-Z0-9_]*"/>-->
+        <!--</restriction>-->
+        <!--</simpleType>-->
