@@ -1,39 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <tns:medicines xmlns:tns="http://www.example.com/Medicines"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://www.example.com/Medicines med.xsd ">
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.example.com/Medicines med.xsd ">
 
-<!--<medicines>-->
-    <medicine login="aaa999" >
-        <name>aspirin</name>
-        <pharm>hho</pharm>
-        <group>antibiotic</group>
-<!--        <Analogs>-->
-<!--            <Analog>1</Analog>-->
-<!--            <Analog>2</Analog>-->
-<!--        </Analogs>-->
-<!--        <Versions>-->
-<!--            <Version>-->
-<!--                <type>pills</type>>-->
-<!--                <producers>-->
-<!--                    <producer>-->
-<!--                        <certificate>1234:232</certificate>-->
-<!--                        <package>box</package>-->
-<!--                        <dosage>100</dosage>-->
-<!--                    </producer>-->
-
-<!--                </producers>-->
-
-
-<!--            </Version>-->
-
-<!--        </Versions>-->
+    <medicine id="qwrty123">
+        <tradeName>ибупрофен</tradeName>
+        <realName>ibuprofen</realName>
+        <pharm name="Medana Pharma">
+            <certificate>
+                <number>11298</number>
+                <issueDate>2000-10-20</issueDate>
+                <expDate>2030-10-19</expDate>
+                <authority>MasterGroup</authority>
+            </certificate>
+            <address phone="029-1234567">
+                <country>Belarus</country>
+                <city>Minsk</city>
+                <street>Nesavisimosty</street>
+                <house>4</house>
+            </address>
+        </pharm>
+        <group>anti-inflammatory</group>
+        <analogs>
+            <analog>
+                <analogName>nurofen</analogName>
+                <analogPharm>some</analogPharm>
+            </analog>
+            <analog>
+                <analogName>ibuprofen</analogName>
+                <analogPharm>pharmTech</analogPharm>
+            </analog>
+        </analogs>
+        <releaseForm>
+            <consistency>liquid</consistency>
+            <packaging>
+                <ml>500</ml>
+            </packaging>
+        </releaseForm>
+        <instructions>Patients should be well hydrated prior to infusion to reduce the risk of renal adverse events.
+            Doses should be infused over at least 30 minutes.
+            Oral: Initial dose: 200 mg orally every 4 to 6 hours.
+            May increase to 400 mg every 4 to 6 hours if additional relief is needed. Maximum dose: 1200 mg/day
+        </instructions>
+        <expDate>2002-09-24</expDate>
     </medicine>
-    <medicine login="aaa888" >
-    <name>alkas</name>
-    <pharm>hhddko</pharm>
-    <group>antihistamine</group>
+
+    <medicine id="ekj495">
+        <tradeName>anyHomeopathyStuff</tradeName>
+        <realName>sugar</realName>
+        <pharm name="HelloWorld">
+            <certificate>
+                <number>12345</number>
+                <issueDate>2010-10-20</issueDate>
+                <expDate>2050-10-19</expDate>
+                <authority>MasterGroup</authority>
+            </certificate>
+            <address>
+                <country>flatEarth</country>
+                <city>Minsk</city>
+                <street>Nesavisimosty</street>
+                <house>4</house>
+            </address>
+        </pharm>
+        <group>homeopathy</group>
+        <analogs>
+            <analog>
+                <analogName>sugar</analogName>
+                <analogPharm>justEatSugarPharm</analogPharm>
+            </analog>
+        </analogs>
+        <releaseForm>
+            <consistency>pills</consistency>
+            <packaging>
+                <quantity>100</quantity>
+            </packaging>
+        </releaseForm>
+        <instructions>eat sugar and forget about vaccination</instructions>
+        <expDate>2100-01-01</expDate>
     </medicine>
+
+
+
+
 </tns:medicines>
 
