@@ -2,7 +2,7 @@
 
 <tns:medicines xmlns:tns="http://www.example.com/Medicines"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="http://www.example.com/Medicines med.xsd ">
+               xsi:schemaLocation="http://www.example.com/Medicines src/main/resources/med.xsd ">
 
     <medicine id="qwrty123">
         <tradeName>ибупрофен</tradeName>
