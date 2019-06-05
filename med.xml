@@ -1,86 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<tns:medicines xmlns:tns="http://www.example.com/Medicines"
-               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<tns:medicines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:tns="http://www.example.com/Medicines"
+               xmlns:c="http://www.example.com/Certificate"
                xsi:schemaLocation="http://www.example.com/Medicines src/main/resources/med.xsd ">
 
-    <medicine id="qwrty123">
-        <tradeName>ибупрофен</tradeName>
-        <realName>ibuprofen</realName>
-        <pharm name="Medana Pharma">
-            <certificate>
-                <number>11298</number>
-                <issueDate>2000-10-20</issueDate>
-                <expDate>2030-10-19</expDate>
-                <authority>MasterGroup</authority>
-            </certificate>
-            <address phone="029-1234567">
-                <country>Belarus</country>
-                <city>Minsk</city>
-                <street>Nesavisimosty</street>
-                <house>4</house>
-            </address>
-        </pharm>
-        <group>anti-inflammatory</group>
-        <analogs>
-            <analog>
-                <analogName>nurofen</analogName>
-                <analogPharm>some</analogPharm>
-            </analog>
-            <analog>
-                <analogName>ibuprofen</analogName>
-                <analogPharm>pharmTech</analogPharm>
-            </analog>
-        </analogs>
-        <releaseForm>
-            <consistency>liquid</consistency>
-            <packaging>
-                <ml>500</ml>
-            </packaging>
-        </releaseForm>
-        <instructions>Patients should be well hydrated prior to infusion to reduce the risk of renal adverse events.
-            Doses should be infused over at least 30 minutes.
-            Oral: Initial dose: 200 mg orally every 4 to 6 hours.
-            May increase to 400 mg every 4 to 6 hours if additional relief is needed. Maximum dose: 1200 mg/day
-        </instructions>
-        <expDate>2002-09-24</expDate>
-    </medicine>
+    <tns:medicine id="qwrty123">
+        <tns:tradeName>ибупрофен</tns:tradeName>
+        <tns:realName>ibuprofen</tns:realName>
+        <tns:pharm name="Medana Pharma">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>anti_inflammatory</tns:group>
+                <tns:analogs>
+                    <tns:analog>
+                        <tns:analogName>nurofen</tns:analogName>
+                        <tns:analogPharm>some</tns:analogPharm>
+                    </tns:analog>
+                    <tns:analog>
+                        <tns:analogName>ibuprofen</tns:analogName>
+                        <tns:analogPharm>pharmTech</tns:analogPharm>
+                    </tns:analog>
+                </tns:analogs>
+                <tns:releaseForm packaging="000" amount="100">
+                    <tns:consistency>liquid</tns:consistency>
 
-    <medicine id="ekj495">
-        <tradeName>anyHomeopathyStuff</tradeName>
-        <realName>sugar</realName>
-        <pharm name="HelloWorld">
-            <certificate>
-                <number>12345</number>
-                <issueDate>2010-10-20</issueDate>
-                <expDate>2050-10-19</expDate>
-                <authority>MasterGroup</authority>
-            </certificate>
-            <address>
-                <country>flatEarth</country>
-                <city>Minsk</city>
-                <street>Nesavisimosty</street>
-                <house>4</house>
-            </address>
-        </pharm>
-        <group>homeopathy</group>
-        <analogs>
-            <analog>
-                <analogName>sugar</analogName>
-                <analogPharm>justEatSugarPharm</analogPharm>
-            </analog>
-        </analogs>
-        <releaseForm>
-            <consistency>pills</consistency>
-            <packaging>
-                <quantity>100</quantity>
-            </packaging>
-        </releaseForm>
-        <instructions>eat sugar and forget about vaccination</instructions>
-        <expDate>2100-01-01</expDate>
-    </medicine>
+                </tns:releaseForm>
+        <tns:instructions>Doses should be infused over at least 30 minutes. Oral: Initial dose: 200 mg orally every 4 to 6 hours.
+        </tns:instructions>
+        <tns:expDate>2002-09-24</tns:expDate>
+    </tns:medicine>
 
-
+    <tns:medicine id="ekj495">
+        <tns:tradeName>anyHomeopathyStuff</tns:tradeName>
+        <tns:realName>sugar</tns:realName>
+        <tns:pharm name="HelloWorld">
+            <!--            <certificate>-->
+            <!--                <number>12345</number>-->
+            <!--                <issueDate>2010-10-20</issueDate>-->
+            <!--                <expDate>2050-10-19</expDate>-->
+            <!--                <authority>MasterGroup</authority>-->
+            <!--            </certificate>-->
+            <!--            <address>-->
+            <!--                <country>flatEarth</country>-->
+            <!--                <city>Minsk</city>-->
+            <!--                <street>Nesavisimosty</street>-->
+            <!--                <house>4</house>-->
+            <!--            </address>-->
+        </tns:pharm>
+        <tns:group>homeopathy</tns:group>
+        <!--        <analogs>-->
+        <!--            <analog>-->
+        <!--                <analogName>sugar</analogName>-->
+        <!--                <analogPharm>justEatSugarPharm</analogPharm>-->
+        <!--            </analog>-->
+        <!--        </analogs>-->
+        <!--        <releaseForm>-->
+        <!--            <consistency>pills</consistency>-->
+        <!--            <packaging>-->
+        <!--                <quantity>100</quantity>-->
+        <!--            </packaging>-->
+        <!--        </releaseForm>-->
+        <tns:instructions>eat sugar and forget about vaccination</tns:instructions>
+        <tns:expDate>2100-01-01</tns:expDate>
+    </tns:medicine>
 
 
 </tns:medicines>

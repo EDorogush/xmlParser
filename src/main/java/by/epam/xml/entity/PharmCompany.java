@@ -1,6 +1,7 @@
 package by.epam.xml.entity;
 
 import java.time.LocalDate;
+import java.util.StringJoiner;
 
 public class PharmCompany {
   private String name;
@@ -31,7 +32,17 @@ public class PharmCompany {
     this.address = address;
   }
 
-  public class Address{
+  @Override
+  public String toString() {
+    return new StringJoiner(",\n\t\t", PharmCompany.class.getSimpleName() + "[\n\t\t", "]")
+            .add("name='" + name + "'")
+            .add(certificate.toString())
+            .add(address.toString())
+            .toString();
+  }
+
+
+  public class Address {
     private String country;
     private String sity;
     private String street;
@@ -78,9 +89,19 @@ public class PharmCompany {
       this.phone = phone;
     }
 
+    @Override
+    public String toString() {
+      return new StringJoiner(",\n\t\t\t", Address.class.getSimpleName() + "[\n\t\t\t", "]")
+              .add("country='" + country + "'")
+              .add("sity='" + sity + "'")
+              .add("street='" + street + "'")
+              .add("house=" + house)
+              .add("phone='" + phone + "'")
+              .toString();
+    }
   }
 
-  public class  PharmCompanyCertificate{
+  public class PharmCompanyCertificate {
     private int id;
     private LocalDate issueDate;
     private LocalDate expDate;
@@ -117,5 +138,17 @@ public class PharmCompany {
     public void setAutority(String autority) {
       this.autority = autority;
     }
+
+    @Override
+    public String toString() {
+      return new StringJoiner(",\n\t\t\t", PharmCompanyCertificate.class.getSimpleName() + "[\n\t\t\t", "]")
+              .add("id=" + id)
+              .add("issueDate=" + issueDate)
+              .add("expDate=" + expDate)
+              .add("autority='" + autority + "'")
+              .toString();
+    }
   }
+
+
 }

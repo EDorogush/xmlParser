@@ -8,6 +8,7 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,20 +86,28 @@ public class StAXParser {
     String s = reader.getText().trim();
     if (currentGroup == null) return;
     switch (currentGroup) {
-      case NAME:
-        curr.setName(s);
+      case TRADENAME:
+        curr.setTradeName(s);
         break;
-      case PHARM:
-        curr.setPharm(s);
+      case REALNAME:
+        curr.setRealName(s);
+        break;
+      case EXPDATE:
+        curr.setExpDate(LocalDate.parse(s));
         break;
       case GROUP:
         curr.setType(MedicineGroup.valueOf(s.toUpperCase()));
+        break;
+      case INSTRUCTIONS:
+        curr.setInstructions(s);
+        break;
+
     }
   }
 
 
   private enum TagGroup {
-    MEDICINES, MEDICINE, NAME, PHARM, GROUP
+    MEDICINES, MEDICINE, TRADENAME, REALNAME, GROUP, EXPDATE, INSTRUCTIONS
   }
 }
 

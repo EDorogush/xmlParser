@@ -1,15 +1,18 @@
 package by.epam.xml.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 public class Medicine {
   private String id;
   private String tradeName;
   private String realName;
-  private PharmCompany pharm;
+  private PharmCompany pharm = new PharmCompany();
   private MedicineGroup type;
-  private List<Medicine> analogs;
+  private List<Medicine> analogs = new ArrayList<>();
   private ReleaseForm release;
   private String instructions;
   private LocalDate expDate;
@@ -39,6 +42,7 @@ public class Medicine {
     this.realName = realName;
   }
 
+
   public PharmCompany getPharm() {
     return pharm;
   }
@@ -55,12 +59,16 @@ public class Medicine {
     this.type = type;
   }
 
-  public List<Medicine> getAnalogs() {
-    return analogs;
+  public Medicine findLast() {
+    return analogs.get(analogs.size() - 1);
   }
 
-  public void setAnalogs(List<Medicine> analogs) {
-    this.analogs = analogs;
+//  public List<Medicine> getAnalogsList() {
+//    return analogs;
+//  }
+
+  public void addAnalogs(Medicine analog) {
+    this.analogs.add(analog);
   }
 
   public ReleaseForm getRelease() {
@@ -87,10 +95,40 @@ public class Medicine {
     this.expDate = expDate;
   }
 
-  public class ReleaseForm{
+  @Override
+  public String toString() {
+    return new StringJoiner(",\n\t", Medicine.class.getSimpleName() + ":\n\t", "]\n")
+            .add("id='" + id + "'")
+            .add("tradeName='" + tradeName + "'")
+            .add("realName='" + realName + "'")
+            .add(pharm.toString())
+            .add("type=" + type)
+            .add("analogs=" + analogs.stream().map(Medicine::getTradeName).collect(Collectors.toList()))
+            .add("release=" + release)
+            .add("instructions='" + instructions + "'")
+            .add("expDate=" + expDate)
+            .toString();
+  }
+
+
+  //  @Override
+//  public String toString() {
+//    return "Medicine\n{" +
+//            "id='" + id + '\'' +
+//            ",\n tradeName='" + tradeName + '\'' +
+//            ",\n realName='" + realName + '\'' +
+//            ",\n pharm=" + pharm +
+//            ",\n type=" + type +
+//            ",\n analogs=" + analogs +
+//            ",\n release=" + release +
+//            ",\n instructions='" + instructions + '\'' +
+//            ",\n expDate=" + expDate + "\n"+
+//            "}\n";
+//  }
+
+  public class ReleaseForm {
     private MedConsistencyType consistency;
     private int amount;
-
     public MedConsistencyType getConsistency() {
       return consistency;
     }
@@ -105,6 +143,14 @@ public class Medicine {
 
     public void setAmount(int amount) {
       this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+      return new StringJoiner(",\n ", ReleaseForm.class.getSimpleName() + "[\t", "]")
+              .add("consistency=" + consistency)
+              .add("amount=" + amount)
+              .toString();
     }
   }
 }

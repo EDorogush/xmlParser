@@ -1,121 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns:tns="http://www.example.com/Medicines"
-        xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.com/Medicines">
-
-    <element name="medicines">
-        <complexType>
-            <sequence>
-                <element name="medicine" type="tns:medicineType" minOccurs="1" maxOccurs="unbounded"/>
-            </sequence>
-        </complexType>
-    </element>
-
-    <complexType name="medicineType">
-        <sequence>
-            <element name="tradeName" type="string"/>
-            <element name="realName" type="string"/>
-            <element name="pharm">
-                <complexType>
-                    <all>
-                        <element name="certificate">
-                            <complexType>
-                                <sequence>
-                                    <element name="number">
-                                        <simpleType>
-                                            <restriction base="positiveInteger"/>
-                                        </simpleType>
-                                    </element>
-                                    <element name="issueDate" type="date"/>
-                                    <element name="expDate" type="date"/>
-                                    <element name="authority" type="string"/>
-                                </sequence>
-                            </complexType>
-                        </element>
-                        <element name="address" type="tns:addressType"/>
-                    </all>
-                    <attribute name="name" type="string" use="required"/>
-                </complexType>
-
-            </element>
-            <element name="group">
-                <simpleType>
-                    <restriction base="string">
-                        <enumeration value="antibiotic"/>
-                        <enumeration value="antidepressant"/>
-                        <enumeration value="antihistamine"/>
-                        <enumeration value="homeopathy"/>
-                        <enumeration value="anti-inflammatory"/>
-
-                    </restriction>
-                </simpleType>
-            </element>
-            <element name="analogs">
-                <complexType>
-                    <sequence>
-                        <element name="analog" maxOccurs="2">
-                            <complexType>
-                                <sequence>
-                                    <element name="analogName" type="string"/>
-                                    <element name="analogPharm" type="string"/>
-                                </sequence>
-                            </complexType>
-                        </element>
-                    </sequence>
-                </complexType>
-            </element>
-            <element name="releaseForm" type="tns:releaseFormType"/>
-            <element name="instructions" type="string"/>
-            <element name="expDate" type="date"/>
-        </sequence>
-        <attribute name="id" type="ID" use="required"/>
-    </complexType>
+<xs:schema xmlns:cmn="http://www.example.com/Certificate"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.example.com/Medicines"
+           targetNamespace="http://www.example.com/Medicines"
+           elementFormDefault="qualified">
 
 
-    <complexType name="addressType">
-        <sequence>
-            <element name="country" type="string"/>
-            <element name="city" type="string"/>
-            <element name="street" type="string"/>
-            <element name="house" type="positiveInteger"/>
-        </sequence>
-        <attribute name="phone" type="tns:phoneType"/>
-    </complexType>
+            <!--xmlns:tns="http://www.example.com/Medicines"-->
 
-    <simpleType name="phoneType">
-        <restriction base="string">
-            <pattern value="[0-9]{3}-[0-9]{7}"/>
-        </restriction>
-    </simpleType>
 
-    <complexType name="releaseFormType">
-        <all>
-            <element name="consistency">
-                <simpleType>
-                    <restriction base="string">
-                        <enumeration value="liquid"/>
-                        <enumeration value="pills"/>
-                        <enumeration value="capsule"/>
-                        <enumeration value="suspension"/>
-                        <enumeration value="drops"/>
-                    </restriction>
-                </simpleType>
-            </element>
-            <element name="packaging">
-                <complexType>
-                    <choice>
-                        <element name="ml">
-                            <simpleType>
-                                <restriction base="positiveInteger">
-                                    <maxInclusive value="1000"/>
-                                </restriction>
-                            </simpleType>
-                        </element>
-                        <element name="quantity" type="positiveInteger"/>
-                        <element name="gram" type="positiveInteger"/>
-                    </choice>
-                </complexType>
-            </element>
-        </all>
-    </complexType>
+    <xs:import namespace="http://www.example.com/Certificate"
+               schemaLocation="certificate.xsd"/>
 
-</schema>
+
+        <xs:element name="medicines">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="medicine" type="tns:medicineType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="medicineType">
+        <xs:sequence>
+            <xs:element name="tradeName" type="xs:string"/>
+            <xs:element name="realName" type="xs:string"/>
+            <xs:element name="pharm">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="certificate" type="cmn:Certificate"/>
+                        <xs:element name="address" type="cmn:addressType"/>
+                    </xs:all>
+                    <xs:attribute name="name" type="xs:string" use="required"/>
+                </xs:complexType>
+
+            </xs:element>
+            <xs:element name="group">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="antibiotic"/>
+                        <xs:enumeration value="antidepressant"/>
+                        <xs:enumeration value="antihistamine"/>
+                        <xs:enumeration value="homeopathy"/>
+                        <xs:enumeration value="anti_inflammatory"/>
+
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="analogs">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="analog" maxOccurs="2">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="analogName" type="xs:string"/>
+                                    <xs:element name="analogPharm" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="releaseForm" type="tns:releaseFormType"/>
+            <xs:element name="instructions" type="xs:string"/>
+            <xs:element name="expDate" type="xs:date"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <!--<xs:complexType name="certificate">
+        <xs:sequence>
+            <xs:element name="number" >
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="issueDate" type="xs:date"/>
+            <xs:element name="expDate" type="xs:date"/>
+            <xs:element name="authority" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+-->
+<!--    <xs:complexType name="addressType">-->
+<!--        <xs:sequence>-->
+<!--            <xs:element name="country" type="xs:string"/>-->
+<!--            <xs:element name="city" type="xs:string"/>-->
+<!--            <xs:element name="street" type="xs:string"/>-->
+<!--            <xs:element name="house" type="xs:positiveInteger"/>-->
+<!--        </xs:sequence>-->
+<!--        <xs:attribute name="phone" type="tns:phoneType"/>-->
+<!--    </xs:complexType>-->
+
+<!--    <xs:simpleType name="phoneType">-->
+<!--        <xs:restriction base="xs:string">-->
+<!--            <xs:pattern value="[0-9]{3}-[0-9]{7}"/>-->
+<!--        </xs:restriction>-->
+<!--    </xs:simpleType>-->
+
+    <xs:complexType name="releaseFormType">
+        <xs:sequence>
+            <xs:element name="consistency">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="liquid"/>
+                        <xs:enumeration value="pills"/>
+                        <xs:enumeration value="capsule"/>
+                        <xs:enumeration value="suspension"/>
+                        <xs:enumeration value="drops"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="packaging" type="tns:packagingType"/>
+        <xs:attribute name="amount" type="xs:positiveInteger"/>
+    </xs:complexType>
+
+    <xs:complexType name="packagingType">
+        <xs:sequence>
+            <xs:element name="consistency" type="tns:consistency"/>
+        </xs:sequence>
+    </xs:complexType>
+
+         <xs:simpleType name="consistency">
+
+         </xs:simpleType>
+
+
+        <xs:choice>
+            <xs:element name="ml" type="xs:string"/>
+            <xs:element name="quantity" type="xs:string"/>
+            <xs:element name="gram" type="xs:string"/>
+        </xs:choice>
+    </xs:complexType>
+
+</xs:schema>

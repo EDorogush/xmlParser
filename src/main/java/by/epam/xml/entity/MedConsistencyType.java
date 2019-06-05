@@ -12,7 +12,6 @@ public enum MedConsistencyType {
     this.packaging = type;
 
   }
-
   public String getPackaging() {
     return packaging;
   }

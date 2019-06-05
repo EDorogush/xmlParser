@@ -15,6 +15,7 @@ public class SAXExample {
     List<Medicine> meds = new ArrayList<>();
 
     SAXParserFactory factory = SAXParserFactory.newInstance();
+    factory.setNamespaceAware(true);
 
     try {
       SAXParser parser = factory.newSAXParser();
