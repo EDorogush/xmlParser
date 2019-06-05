@@ -1,6 +1,6 @@
 package by.epam.xml.entity;
 
-public enum MedConsistencyType {
+public enum ReleaseType {
   LIQUID("ml"),
   PILL("quantity"),
   CAPSULE("quantity"),
@@ -8,7 +8,7 @@ public enum MedConsistencyType {
   DROP("ml");
   private String packaging;
 
-  MedConsistencyType(String type) {
+  ReleaseType(String type) {
     this.packaging = type;
 
   }

@@ -32,10 +32,9 @@
                 <tns:analogPharm>pharmTech</tns:analogPharm>
             </tns:analog>
         </tns:analogs>
-        <tns:releaseForm>liquid, ml</tns:releaseForm>
+        <tns:releaseForm>liquid</tns:releaseForm>
         <tns:amount>10</tns:amount>
-        <tns:instructions>Doses should be infused over at least 30 minutes. Oral: Initial dose: 200 mg orally every 4 to
-            6 hours.
+        <tns:instructions>Doses should be infused over at least 30 minutes. Oral: Initial dose: 200 mg orally every 4 to 6 hours.
         </tns:instructions>
         <tns:expDate>2002-09-24</tns:expDate>
     </tns:medicine>

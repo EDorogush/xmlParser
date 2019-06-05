@@ -2,6 +2,7 @@ package by.epam.xml.sax;
 
 import by.epam.xml.entity.Medicine;
 import by.epam.xml.entity.MedicineGroup;
+import by.epam.xml.entity.ReleaseType;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -13,8 +14,8 @@ import java.util.List;
 public class SimpleHandler extends DefaultHandler {
   private List<Medicine> meds = new ArrayList<>();
   private Medicine curr = null;
-  private SimpleTagGroup currentGroup = null;
-  private SimpleTagGroup parentGroup = null;
+  private TagGroup currentGroup = null;
+  private TagGroup parentGroup = null;
 
   public List<Medicine> getMeds() {
     return meds;
@@ -22,33 +23,51 @@ public class SimpleHandler extends DefaultHandler {
 
   @Override
   public void startElement(String uri, String localName, String qName, Attributes attributes) {
-//    SimpleTagGroup parent = SimpleTagGroup.valueOf(qName.toUpperCase());
-//    switch (parent){
-//      case MEDICINE:
-//        curr = new Medicine();
-//        curr.setId(attributes.getValue(0));
+    currentGroup = TagGroup.valueOf(qName.replace(":", "_").toUpperCase());
+    switch (currentGroup){
+      case TNS_MEDICINE:
+        curr = new Medicine();
+        curr.setId(attributes.getValue(0));
+        break;
+      case TNS_PHARM:
+        curr.getPharm().setName(attributes.getValue(0));
+        break;
+      case TNS_CERTIFICATE:
+        curr.getPharm().getCertificate().setId(Integer.parseInt(attributes.getValue(0)));
+        break;
+      case TNS_ADDRESS:
+        curr.getPharm().getAddress().setPhone(attributes.getValue(0));
+        break;
+      case TNS_ANALOG:
+        curr.addAnalogs(new Medicine());
+        break;
+//      case TNS_ANALOGS:
+//        break;
+//      case TNS_MEDICINES:
+//        break;
+
+    }
+
+//
+//    if (qName.equals("tns:medicine")) {
+//      curr = new Medicine();
+//      curr.setId(attributes.getValue(0));
+//    } else if (qName.equals("tns:pharm")) {
+//      curr.getPharm().setName(attributes.getValue(0));
+//
+//    } else if (qName.equals("tns:certificate")) {
+//      curr.getPharm().getCertificate().setId(Integer.parseInt(attributes.getValue(0)));
+//
+//    } else if (qName.equals("tns:address")) {
+//      curr.getPharm().getAddress().setPhone(attributes.getValue(0));
+//
+//    } else if (qName.equals("tns:analog")) {
+//      curr.addAnalogs(new Medicine());
+//
 //    }
-
-
-    if (qName.equals("tns:medicine")) {
-      curr = new Medicine();
-      curr.setId(attributes.getValue(0));
-    } else if (qName.equals("tns:pharm")) {
-      curr.getPharm().setName(attributes.getValue(0));
-
-    } else if (qName.equals("tns:certificate")) {
-      curr.getPharm().getCertificate().setId(Integer.parseInt(attributes.getValue(0)));
-
-    } else if (qName.equals("tns:address")) {
-      curr.getPharm().getAddress().setPhone(attributes.getValue(0));
-
-    } else if (qName.equals("tns:analog")) {
-      curr.addAnalogs(new Medicine());
-
-    }
-    else if (!qName.equals("tns:medicines") && !qName.equals("tns:analogs")) {
-      currentGroup = SimpleTagGroup.valueOf(qName.replace(":", "_").toUpperCase());
-    }
+//    else if (!qName.equals("tns:medicines") && !qName.equals("tns:analogs")) {
+//      currentGroup = TagGroup.valueOf(qName.replace(":", "_").toUpperCase());
+//    }
 
   }
 
@@ -106,24 +125,26 @@ public class SimpleHandler extends DefaultHandler {
         break;
       case TNS_ANALOGPHARM:
         curr.findLast().getPharm().setName(s);
+        break;
+      case TNS_RELEASEFORM:
+        curr.setRelease(ReleaseType.valueOf(s.toUpperCase()));
+        break;
+      case TNS_AMOUNT:
+        curr.setAmount(Integer.parseInt(s));
+        break;
+       // default: throw new CustomException(String.format("No enum value for  found",s));
 
 
     }
   }
 
-  private enum SimpleTagGroup {
-    TNS_TRADENAME, TNS_REALNAME, TNS_GROUP, TNS_INSTRUCTIONS, TNS_EXPDATE,
-    C_ISSUEDATE, C_EXPDATE, C_AUTHORITY, C_COUNTRY, C_CITY, C_STREET, C_HOUSE,
-    TNS_ANALOGNAME, TNS_ANALOGPHARM;
+  private enum TagGroup {
+    C_AUTHORITY, C_CITY, C_COUNTRY, C_EXPDATE, C_HOUSE,
+    C_ISSUEDATE, C_STREET, TNS_ADDRESS, TNS_AMOUNT, TNS_ANALOG, TNS_ANALOGNAME, TNS_ANALOGPHARM,
+    TNS_ANALOGS, TNS_CERTIFICATE, TNS_EXPDATE, TNS_GROUP,
+    TNS_INSTRUCTIONS, TNS_MEDICINE, TNS_MEDICINES, TNS_PHARM, TNS_REALNAME, TNS_RELEASEFORM, TNS_TRADENAME
 
 
-//    */MEDICINE, PHARM, CERTIFICATE, ADDRESS, ANALOGS,ANALOG,
-
-  }
-
-
-  private enum ParentTagGroup {
-    MEDICINE, PHARM, CERTIFICATE, ADDRESS, ANALOGS, ANALOG,
   }
 
 

@@ -64,11 +64,11 @@
             <xs:element name="releaseForm">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:enumeration value="liquid, ml"/>
+                        <xs:enumeration value="liquid"/>
                         <xs:enumeration value="pills"/>
                         <xs:enumeration value="capsule"/>
-                        <xs:enumeration value="suspension, gram"/>
-                        <xs:enumeration value="drops, ml"/>
+                        <xs:enumeration value="suspension"/>
+                        <xs:enumeration value="drops"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -113,11 +113,11 @@
             <xs:element name="consistency">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:enumeration value="liquid, ml"/>
+                        <xs:enumeration value="liquid"/>
                         <xs:enumeration value="pills"/>
                         <xs:enumeration value="capsule"/>
-                        <xs:enumeration value="suspension, gram"/>
-                        <xs:enumeration value="drops, ml"/>
+                        <xs:enumeration value="suspension"/>
+                        <xs:enumeration value="drops"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>

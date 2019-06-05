@@ -13,7 +13,8 @@ public class Medicine {
   private PharmCompany pharm = new PharmCompany();
   private MedicineGroup type;
   private List<Medicine> analogs = new ArrayList<>();
-  private ReleaseForm release;
+  private ReleaseType release;
+  private int amount;
   private String instructions;
   private LocalDate expDate;
 
@@ -63,20 +64,24 @@ public class Medicine {
     return analogs.get(analogs.size() - 1);
   }
 
-//  public List<Medicine> getAnalogsList() {
-//    return analogs;
-//  }
-
   public void addAnalogs(Medicine analog) {
     this.analogs.add(analog);
   }
 
-  public ReleaseForm getRelease() {
+  public ReleaseType getRelease() {
     return release;
   }
 
-  public void setRelease(ReleaseForm release) {
+  public void setRelease(ReleaseType release) {
     this.release = release;
+  }
+
+  public int getAmount() {
+    return amount;
+  }
+
+  public void setAmount(int amount) {
+    this.amount = amount;
   }
 
   public String getInstructions() {
@@ -105,52 +110,10 @@ public class Medicine {
             .add("type=" + type)
             .add("analogs=" + analogs.stream().map(Medicine::getTradeName).collect(Collectors.toList()))
             .add("release=" + release)
+            .add("amount="+amount)
             .add("instructions='" + instructions + "'")
             .add("expDate=" + expDate)
             .toString();
   }
 
-
-  //  @Override
-//  public String toString() {
-//    return "Medicine\n{" +
-//            "id='" + id + '\'' +
-//            ",\n tradeName='" + tradeName + '\'' +
-//            ",\n realName='" + realName + '\'' +
-//            ",\n pharm=" + pharm +
-//            ",\n type=" + type +
-//            ",\n analogs=" + analogs +
-//            ",\n release=" + release +
-//            ",\n instructions='" + instructions + '\'' +
-//            ",\n expDate=" + expDate + "\n"+
-//            "}\n";
-//  }
-
-  public class ReleaseForm {
-    private MedConsistencyType consistency;
-    private int amount;
-    public MedConsistencyType getConsistency() {
-      return consistency;
-    }
-
-    public void setConsistency(MedConsistencyType consistency) {
-      this.consistency = consistency;
-    }
-
-    public int getAmount() {
-      return amount;
-    }
-
-    public void setAmount(int amount) {
-      this.amount = amount;
-    }
-
-    @Override
-    public String toString() {
-      return new StringJoiner(",\n ", ReleaseForm.class.getSimpleName() + "[\t", "]")
-              .add("consistency=" + consistency)
-              .add("amount=" + amount)
-              .toString();
-    }
-  }
 }
