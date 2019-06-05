@@ -43,32 +43,31 @@
         <tns:tradeName>anyHomeopathyStuff</tns:tradeName>
         <tns:realName>sugar</tns:realName>
         <tns:pharm name="HelloWorld">
-            <!--            <certificate>-->
-            <!--                <number>12345</number>-->
-            <!--                <issueDate>2010-10-20</issueDate>-->
-            <!--                <expDate>2050-10-19</expDate>-->
-            <!--                <authority>MasterGroup</authority>-->
-            <!--            </certificate>-->
-            <!--            <address>-->
-            <!--                <country>flatEarth</country>-->
-            <!--                <city>Minsk</city>-->
-            <!--                <street>Nesavisimosty</street>-->
-            <!--                <house>4</house>-->
-            <!--            </address>-->
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
         </tns:pharm>
         <tns:group>homeopathy</tns:group>
-        <!--        <analogs>-->
-        <!--            <analog>-->
-        <!--                <analogName>sugar</analogName>-->
-        <!--                <analogPharm>justEatSugarPharm</analogPharm>-->
-        <!--            </analog>-->
-        <!--        </analogs>-->
-        <!--        <releaseForm>-->
-        <!--            <consistency>pills</consistency>-->
-        <!--            <packaging>-->
-        <!--                <quantity>100</quantity>-->
-        <!--            </packaging>-->
-        <!--        </releaseForm>-->
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
         <tns:instructions>eat sugar and forget about vaccination</tns:instructions>
         <tns:expDate>2100-01-01</tns:expDate>
     </tns:medicine>

@@ -108,40 +108,7 @@
     <!--        </xs:restriction>-->
     <!--    </xs:simpleType>-->
 
-    <xs:complexType name="releaseFormType">
-        <xs:sequence>
-            <xs:element name="consistency">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:enumeration value="liquid"/>
-                        <xs:enumeration value="pills"/>
-                        <xs:enumeration value="capsule"/>
-                        <xs:enumeration value="suspension"/>
-                        <xs:enumeration value="drops"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-        </xs:sequence>
-        <xs:attribute name="packaging" type="tns:packagingType"/>
-        <xs:attribute name="amount" type="xs:positiveInteger"/>
-    </xs:complexType>
-
-    <xs:complexType name="packagingType">
-        <xs:sequence>
-            <xs:element name="consistency" type="tns:consistency"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:simpleType name="consistency">
-
-    </xs:simpleType>
 
 
-    <xs:choice>
-        <xs:element name="ml" type="xs:string"/>
-        <xs:element name="quantity" type="xs:string"/>
-        <xs:element name="gram" type="xs:string"/>
-    </xs:choice>
-</xs:complexType>
 
         </xs:schema>

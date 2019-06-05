@@ -56,12 +56,16 @@ public class StAXParser {
   }
 
   private void processStartElem(XMLStreamReader reader) {
+    //currentGroup = TagGroup.valueOf(reader.getLocalName())
+    String s1 = reader.getLocalName();
+    String s2 = reader.getPrefix();
+
     String name = reader.getLocalName().toUpperCase();
     switch (TagGroup.valueOf(name)) {
-      case MEDICINES:
+      case TNS_MEDICINES:
         //do nothing
         break;
-      case MEDICINE:
+      case TNS_MEDICINE:
         curr = new Medicine();
         curr.setId(reader.getAttributeValue(0));
         break;
@@ -73,7 +77,7 @@ public class StAXParser {
   private void processEndElem(XMLStreamReader reader) {
     String name = reader.getLocalName();
     switch (TagGroup.valueOf(name.toUpperCase())) {
-      case MEDICINE:
+      case TNS_MEDICINE:
         meds.add(curr);
         break;
       default:
@@ -86,19 +90,19 @@ public class StAXParser {
     String s = reader.getText().trim();
     if (currentGroup == null) return;
     switch (currentGroup) {
-      case TRADENAME:
+      case TNS_TRADENAME:
         curr.setTradeName(s);
         break;
-      case REALNAME:
+      case TNS_REALNAME:
         curr.setRealName(s);
         break;
-      case EXPDATE:
+      case TNS_EXPDATE:
         curr.setExpDate(LocalDate.parse(s));
         break;
-      case GROUP:
+      case TNS_GROUP:
         curr.setType(MedicineGroup.valueOf(s.toUpperCase()));
         break;
-      case INSTRUCTIONS:
+      case TNS_INSTRUCTIONS:
         curr.setInstructions(s);
         break;
 
@@ -107,7 +111,10 @@ public class StAXParser {
 
 
   private enum TagGroup {
-    MEDICINES, MEDICINE, TRADENAME, REALNAME, GROUP, EXPDATE, INSTRUCTIONS
+    C_AUTHORITY, C_CITY, C_COUNTRY, C_EXPDATE, C_HOUSE,
+    C_ISSUEDATE, C_STREET, TNS_ADDRESS, TNS_AMOUNT, TNS_ANALOG, TNS_ANALOGNAME, TNS_ANALOGPHARM,
+    TNS_ANALOGS, TNS_CERTIFICATE, TNS_EXPDATE, TNS_GROUP,
+    TNS_INSTRUCTIONS, TNS_MEDICINE, TNS_MEDICINES, TNS_PHARM, TNS_REALNAME, TNS_RELEASEFORM, TNS_TRADENAME
   }
 }
 
