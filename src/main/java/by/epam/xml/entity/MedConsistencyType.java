@@ -4,8 +4,8 @@ public enum MedConsistencyType {
   LIQUID("ml"),
   PILL("quantity"),
   CAPSULE("quantity"),
-  SUSPENSION("ml"),
-  DROP("gram");
+  SUSPENSION("gram"),
+  DROP("ml");
   private String packaging;
 
   MedConsistencyType(String type) {

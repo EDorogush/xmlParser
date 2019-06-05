@@ -6,14 +6,14 @@
            elementFormDefault="qualified">
 
 
-            <!--xmlns:tns="http://www.example.com/Medicines"-->
+    <!--xmlns:tns="http://www.example.com/Medicines"-->
 
 
     <xs:import namespace="http://www.example.com/Certificate"
                schemaLocation="certificate.xsd"/>
 
 
-        <xs:element name="medicines">
+    <xs:element name="medicines">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="medicine" type="tns:medicineType" minOccurs="1" maxOccurs="unbounded"/>
@@ -61,7 +61,18 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="releaseForm" type="tns:releaseFormType"/>
+            <xs:element name="releaseForm">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="liquid, ml"/>
+                        <xs:enumeration value="pills"/>
+                        <xs:enumeration value="capsule"/>
+                        <xs:enumeration value="suspension, gram"/>
+                        <xs:enumeration value="drops, ml"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="amount" type="xs:positiveInteger"/>
             <xs:element name="instructions" type="xs:string"/>
             <xs:element name="expDate" type="xs:date"/>
         </xs:sequence>
@@ -81,32 +92,32 @@
         </xs:sequence>
     </xs:complexType>
 -->
-<!--    <xs:complexType name="addressType">-->
-<!--        <xs:sequence>-->
-<!--            <xs:element name="country" type="xs:string"/>-->
-<!--            <xs:element name="city" type="xs:string"/>-->
-<!--            <xs:element name="street" type="xs:string"/>-->
-<!--            <xs:element name="house" type="xs:positiveInteger"/>-->
-<!--        </xs:sequence>-->
-<!--        <xs:attribute name="phone" type="tns:phoneType"/>-->
-<!--    </xs:complexType>-->
+    <!--    <xs:complexType name="addressType">-->
+    <!--        <xs:sequence>-->
+    <!--            <xs:element name="country" type="xs:string"/>-->
+    <!--            <xs:element name="city" type="xs:string"/>-->
+    <!--            <xs:element name="street" type="xs:string"/>-->
+    <!--            <xs:element name="house" type="xs:positiveInteger"/>-->
+    <!--        </xs:sequence>-->
+    <!--        <xs:attribute name="phone" type="tns:phoneType"/>-->
+    <!--    </xs:complexType>-->
 
-<!--    <xs:simpleType name="phoneType">-->
-<!--        <xs:restriction base="xs:string">-->
-<!--            <xs:pattern value="[0-9]{3}-[0-9]{7}"/>-->
-<!--        </xs:restriction>-->
-<!--    </xs:simpleType>-->
+    <!--    <xs:simpleType name="phoneType">-->
+    <!--        <xs:restriction base="xs:string">-->
+    <!--            <xs:pattern value="[0-9]{3}-[0-9]{7}"/>-->
+    <!--        </xs:restriction>-->
+    <!--    </xs:simpleType>-->
 
     <xs:complexType name="releaseFormType">
         <xs:sequence>
             <xs:element name="consistency">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:enumeration value="liquid"/>
+                        <xs:enumeration value="liquid, ml"/>
                         <xs:enumeration value="pills"/>
                         <xs:enumeration value="capsule"/>
-                        <xs:enumeration value="suspension"/>
-                        <xs:enumeration value="drops"/>
+                        <xs:enumeration value="suspension, gram"/>
+                        <xs:enumeration value="drops, ml"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -121,16 +132,16 @@
         </xs:sequence>
     </xs:complexType>
 
-         <xs:simpleType name="consistency">
+    <xs:simpleType name="consistency">
 
-         </xs:simpleType>
+    </xs:simpleType>
 
 
-        <xs:choice>
-            <xs:element name="ml" type="xs:string"/>
-            <xs:element name="quantity" type="xs:string"/>
-            <xs:element name="gram" type="xs:string"/>
-        </xs:choice>
-    </xs:complexType>
+    <xs:choice>
+        <xs:element name="ml" type="xs:string"/>
+        <xs:element name="quantity" type="xs:string"/>
+        <xs:element name="gram" type="xs:string"/>
+    </xs:choice>
+</xs:complexType>
 
-</xs:schema>
+        </xs:schema>
