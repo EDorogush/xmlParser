@@ -2,6 +2,7 @@ package by.epam.xml.stax;
 
 import by.epam.xml.entity.Medicine;
 import by.epam.xml.entity.MedicineGroup;
+import by.epam.xml.entity.ReleaseType;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -11,6 +12,7 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class StAXParser {
   private List<Medicine> meds = new ArrayList<>();
@@ -29,14 +31,11 @@ public class StAXParser {
 
     } catch (Exception e) {
       e.printStackTrace();
-
     }
   }
 
   private void process(XMLStreamReader reader) throws XMLStreamException {
     String name;
-
-
     while (reader.hasNext()) {
       int type = reader.next();
       switch (type) {
@@ -49,40 +48,39 @@ public class StAXParser {
         case XMLStreamConstants.CHARACTERS:
           processCharacetrs(reader);
           break;
-
-
       }
     }
   }
 
   private void processStartElem(XMLStreamReader reader) {
-    //currentGroup = TagGroup.valueOf(reader.getLocalName())
-    String s1 = reader.getLocalName();
-    String s2 = reader.getPrefix();
-
-    String name = reader.getLocalName().toUpperCase();
-    switch (TagGroup.valueOf(name)) {
-      case TNS_MEDICINES:
-        //do nothing
-        break;
+    //form qName as "prefix_localName"
+    String qName = new StringBuffer().append(reader.getPrefix()).append("_").append(reader.getLocalName()).toString();
+    currentGroup = TagGroup.valueOf(qName.toUpperCase());
+    switch (currentGroup) {
       case TNS_MEDICINE:
         curr = new Medicine();
         curr.setId(reader.getAttributeValue(0));
         break;
-      default:
-        currentGroup = TagGroup.valueOf(name);
+      case TNS_PHARM:
+        curr.getPharm().setName(reader.getAttributeValue(0));
+        break;
+      case TNS_CERTIFICATE:
+        curr.getPharm().getCertificate().setId(Integer.parseInt(reader.getAttributeValue(0)));
+        break;
+      case TNS_ADDRESS:
+        curr.getPharm().getAddress().setPhone(reader.getAttributeValue(0));
+        break;
+      case TNS_ANALOG:
+        curr.addAnalogs(new Medicine());
+        break;
     }
   }
 
   private void processEndElem(XMLStreamReader reader) {
     String name = reader.getLocalName();
-    switch (TagGroup.valueOf(name.toUpperCase())) {
-      case TNS_MEDICINE:
-        meds.add(curr);
-        break;
-      default:
-        currentGroup = null;
-    }
+    if (name.equals("medicine"))
+      meds.add(curr);
+    currentGroup = null;
   }
 
   private void processCharacetrs(XMLStreamReader reader) {
@@ -96,17 +94,70 @@ public class StAXParser {
       case TNS_REALNAME:
         curr.setRealName(s);
         break;
-      case TNS_EXPDATE:
-        curr.setExpDate(LocalDate.parse(s));
-        break;
       case TNS_GROUP:
         curr.setType(MedicineGroup.valueOf(s.toUpperCase()));
         break;
       case TNS_INSTRUCTIONS:
         curr.setInstructions(s);
         break;
+      case TNS_EXPDATE:
+        curr.setExpDate(LocalDate.parse(s));
+        break;
+      case C_ISSUEDATE:
+        curr.getPharm().getCertificate().setIssueDate(LocalDate.parse(s));
+        break;
+      case C_EXPDATE:
+        curr.getPharm().getCertificate().setExpDate(LocalDate.parse(s));
+        break;
+      case C_AUTHORITY:
+        curr.getPharm().getCertificate().setAutority(s);
+        break;
+      case C_COUNTRY:
+        curr.getPharm().getAddress().setCountry(s);
+        break;
+      case C_STREET:
+        curr.getPharm().getAddress().setStreet(s);
+        break;
+      case C_CITY:
+        curr.getPharm().getAddress().setSity(s);
+        break;
+      case C_HOUSE:
+        curr.getPharm().getAddress().setHouse(Integer.parseInt(s));
+        break;
+      case TNS_ANALOGNAME:
+        curr.findLast().setTradeName(s);
+        break;
+      case TNS_ANALOGPHARM:
+        curr.findLast().getPharm().setName(s);
+        break;
+      case TNS_RELEASEFORM:
+        curr.setRelease(ReleaseType.valueOf(s.toUpperCase()));
+        break;
+      case TNS_AMOUNT:
+        curr.setAmount(Integer.parseInt(s));
+        break;
+      // default: throw new CustomException(String.format("No enum value for  found",s));
 
     }
+//      if (currentGroup == null) return;
+//    switch (currentGroup) {
+//      case TNS_TRADENAME:
+//        curr.setTradeName(s);
+//        break;
+//      case TNS_REALNAME:
+//        curr.setRealName(s);
+//        break;
+//      case TNS_EXPDATE:
+//        curr.setExpDate(LocalDate.parse(s));
+//        break;
+//      case TNS_GROUP:
+//        curr.setType(MedicineGroup.valueOf(s.toUpperCase()));
+//        break;
+//      case TNS_INSTRUCTIONS:
+//        curr.setInstructions(s);
+//        break;
+//
+//    }
   }
 
 
