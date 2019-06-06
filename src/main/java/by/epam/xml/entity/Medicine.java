@@ -64,7 +64,7 @@ public class Medicine {
     return analogs.get(analogs.size() - 1);
   }
 
-  public void addAnalogs(Medicine analog) {
+  public void addAnalog(Medicine analog) {
     this.analogs.add(analog);
   }
 

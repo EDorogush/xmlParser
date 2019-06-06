@@ -1,6 +1,7 @@
 package by.epam.xml.sax;
 
 import by.epam.xml.entity.Medicine;
+import by.epam.xml.parser.MedicineSaxHandler;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -20,11 +21,11 @@ public class SAXExample {
 
     try {
       SAXParser parser = factory.newSAXParser();
-      SimpleHandler handler = new SimpleHandler();
+      MedicineSaxHandler handler = new MedicineSaxHandler();
 
       parser.parse(new File("med.xml"), handler);
       System.out.println("print meds");
-      System.out.println(handler.getMeds().toString());
+      System.out.println(handler.findAll().toString());
 
     } catch (ParserConfigurationException e) {
       e.printStackTrace();

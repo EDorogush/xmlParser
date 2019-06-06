@@ -1,6 +1,7 @@
 package by.epam.xml.dom;
 
 import by.epam.xml.entity.Medicine;
+import by.epam.xml.parser.MedicineDomCreator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -20,7 +21,7 @@ public class DOMExample {
       try {
         Document document = builder.parse(new File("med.xml"));
         Element root = document.getDocumentElement();
-        List<Medicine> meds = Analyzer.listBuilder(root);
+        List<Medicine> meds = MedicineDomCreator.createList(root);
         System.out.println(meds.toString());
       } catch (SAXException e) {
         e.printStackTrace();

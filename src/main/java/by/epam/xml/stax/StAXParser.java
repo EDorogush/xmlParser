@@ -71,7 +71,7 @@ public class StAXParser {
         curr.getPharm().getAddress().setPhone(reader.getAttributeValue(0));
         break;
       case TNS_ANALOG:
-        curr.addAnalogs(new Medicine());
+        curr.addAnalog(new Medicine());
         break;
     }
   }

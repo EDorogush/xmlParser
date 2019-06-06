@@ -1,7 +1,7 @@
 package by.epam.xml.entity;
 
-import by.epam.xml.dom.Analyzer;
-import by.epam.xml.sax.SimpleHandler;
+import by.epam.xml.parser.MedicineDomCreator;
+import by.epam.xml.parser.MedicineSaxHandler;
 import by.epam.xml.stax.StAXParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -35,10 +35,10 @@ public class Pharmacy {
       factory.setNamespaceAware(true);
       try {
         SAXParser parser = factory.newSAXParser();
-        SimpleHandler handler = new SimpleHandler();
+        MedicineSaxHandler handler = new MedicineSaxHandler();
 
         parser.parse(new File(fileName), handler);
-        pharmacy.meds = handler.getMeds();
+        pharmacy.meds = handler.findAll();
 
 
       } catch (ParserConfigurationException | SAXException e) {
@@ -55,7 +55,7 @@ public class Pharmacy {
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(new File(fileName));
         Element root = document.getDocumentElement();
-        pharmacy.meds = Analyzer.listBuilder(root);
+        pharmacy.meds = new MedicineDomCreator().createList(root);
       } catch (ParserConfigurationException | IOException | SAXException e) {
         e.printStackTrace();
       }
