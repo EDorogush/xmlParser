@@ -21,6 +21,11 @@ public class SimpleHandler extends DefaultHandler {
     return meds;
   }
 
+
+
+
+
+
   @Override
   public void startElement(String uri, String localName, String qName, Attributes attributes) {
     currentGroup = TagGroup.valueOf(qName.replace(":", "_").toUpperCase());
@@ -41,36 +46,10 @@ public class SimpleHandler extends DefaultHandler {
       case TNS_ANALOG:
         curr.addAnalogs(new Medicine());
         break;
-//      case TNS_ANALOGS:
-//        break;
-//      case TNS_MEDICINES:
-//        break;
 
     }
 
-//
-//    if (qName.equals("tns:medicine")) {
-//      curr = new Medicine();
-//      curr.setId(attributes.getValue(0));
-//    } else if (qName.equals("tns:pharm")) {
-//      curr.getPharm().setName(attributes.getValue(0));
-//
-//    } else if (qName.equals("tns:certificate")) {
-//      curr.getPharm().getCertificate().setId(Integer.parseInt(attributes.getValue(0)));
-//
-//    } else if (qName.equals("tns:address")) {
-//      curr.getPharm().getAddress().setPhone(attributes.getValue(0));
-//
-//    } else if (qName.equals("tns:analog")) {
-//      curr.addAnalogs(new Medicine());
-//
-//    }
-//    else if (!qName.equals("tns:medicines") && !qName.equals("tns:analogs")) {
-//      currentGroup = TagGroup.valueOf(qName.replace(":", "_").toUpperCase());
-//    }
-
   }
-
   @Override
   public void endElement(String uri, String localName, String qName) {
     if (qName.equals("tns:medicine"))
@@ -132,8 +111,6 @@ public class SimpleHandler extends DefaultHandler {
       case TNS_AMOUNT:
         curr.setAmount(Integer.parseInt(s));
         break;
-       // default: throw new CustomException(String.format("No enum value for  found",s));
-
 
     }
   }

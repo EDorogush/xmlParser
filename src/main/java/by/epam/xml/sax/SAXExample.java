@@ -13,6 +13,7 @@ import java.util.List;
 public class SAXExample {
   public static void main(String[] args) {
     List<Medicine> meds = new ArrayList<>();
+    //FIXME
 
     SAXParserFactory factory = SAXParserFactory.newInstance();
     factory.setNamespaceAware(true);
