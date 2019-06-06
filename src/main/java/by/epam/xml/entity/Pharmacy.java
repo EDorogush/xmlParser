@@ -2,7 +2,7 @@ package by.epam.xml.entity;
 
 import by.epam.xml.parser.MedicineDomCreator;
 import by.epam.xml.parser.MedicineSaxHandler;
-import by.epam.xml.stax.StAXParser;
+import by.epam.xml.parser.MedicineStAXParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -64,10 +64,10 @@ public class Pharmacy {
     }
 
     public Builder withXMLStaxParser(String fileName) {
-      StAXParser parser = new StAXParser();
+      MedicineStAXParser parser = new MedicineStAXParser();
       try {
         parser.parse(new FileInputStream(fileName));
-        pharmacy.meds =  parser.getMeds();
+        pharmacy.meds =  parser.findAll();
       } catch (FileNotFoundException e) {
         e.printStackTrace();
       }

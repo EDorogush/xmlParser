@@ -1,14 +1,16 @@
 package by.epam.xml.stax;
 
+import by.epam.xml.parser.MedicineStAXParser;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class StAXExample {
   public static void main(String[] args) {
-    StAXParser parser = new StAXParser();
+    MedicineStAXParser parser = new MedicineStAXParser();
     try {
       parser.parse(new FileInputStream("med.xml"));
-      System.out.println(parser.getMeds().toString());
+      System.out.println(parser.findAll().toString());
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }

@@ -1,4 +1,4 @@
-package by.epam.xml.stax;
+package by.epam.xml.parser;
 
 import by.epam.xml.entity.Medicine;
 import by.epam.xml.entity.MedicineGroup;
@@ -14,12 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class StAXParser {
+public class MedicineStAXParser {
   private List<Medicine> meds = new ArrayList<>();
   private Medicine curr = null;
   private TagGroup currentGroup = null;
 
-  public List<Medicine> getMeds() {
+  public List<Medicine> findAll() {
+
     return meds;
   }
 
