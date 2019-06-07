@@ -34,7 +34,7 @@
         <tns:expDate>2019-01-01</tns:expDate>
     </tns:medicine>
 
-    <tns:medicine id="qwrty123">
+    <tns:medicine id="a2">
         <tns:tradeName>ибупрофен</tns:tradeName>
         <tns:realName>ibuprofen</tns:realName>
         <tns:pharm name="Medana Pharma">
@@ -50,7 +50,7 @@
                 <c:house>4</c:house>
             </tns:address>
         </tns:pharm>
-        <tns:group>anti_inflammatory</tns:group>
+        <tns:group>ANTI_INFLAMMATORY</tns:group>
         <tns:analogs>
             <tns:analog>
                 <tns:analogName>nurofen</tns:analogName>
@@ -68,7 +68,7 @@
         <tns:expDate>2002-09-24</tns:expDate>
     </tns:medicine>
 
-    <tns:medicine id="ekj495">
+    <tns:medicine id="a3">
         <tns:tradeName>anyHomeopathyStuff</tns:tradeName>
         <tns:realName>sugar</tns:realName>
         <tns:pharm name="HelloWorld">
@@ -84,7 +84,7 @@
                 <c:house>4</c:house>
             </tns:address>
         </tns:pharm>
-        <tns:group>homeopathy</tns:group>
+        <tns:group>HOMEOPATHY</tns:group>
         <tns:analogs>
             <tns:analog>
                 <tns:analogName>nurofen</tns:analogName>
@@ -101,6 +101,426 @@
         <tns:expDate>2100-01-01</tns:expDate>
     </tns:medicine>
 
+    <tns:medicine id="a4">
+        <tns:tradeName>ибупрофен</tns:tradeName>
+        <tns:realName>ibuprofen</tns:realName>
+        <tns:pharm name="Medana Pharma">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>ANTI_INFLAMMATORY</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>Doses should be infused over at least 30 minutes. Oral: Initial dose: 200 mg orally every 4 to 6 hours.
+        </tns:instructions>
+        <tns:expDate>2002-09-24</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a5">
+        <tns:tradeName>ибупрофен</tns:tradeName>
+        <tns:realName>ibuprofen</tns:realName>
+        <tns:pharm name="Medana Pharma">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>ANTI_INFLAMMATORY</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>Doses should be infused over at least 30 minutes. Oral: Initial dose: 200 mg orally every 4 to 6 hours.
+        </tns:instructions>
+        <tns:expDate>2002-09-24</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a6">
+        <tns:tradeName>anyHomeopathyStuff</tns:tradeName>
+        <tns:realName>sugar</tns:realName>
+        <tns:pharm name="HelloWorld">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>HOMEOPATHY</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>eat sugar and forget about vaccination</tns:instructions>
+        <tns:expDate>2100-01-01</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a7">
+        <tns:tradeName>anyHomeopathyStuff</tns:tradeName>
+        <tns:realName>sugar</tns:realName>
+        <tns:pharm name="HelloWorld">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>HOMEOPATHY</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>eat sugar and forget about vaccination</tns:instructions>
+        <tns:expDate>2100-01-01</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a8">
+        <tns:tradeName>Amoxicillin</tns:tradeName>
+        <tns:realName>Amoxicillin</tns:realName>
+        <tns:pharm name="BelMed">
+            <tns:certificate number="1001">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2020-01-01</c:expDate>
+                <c:authority>ministry</c:authority>
+            </tns:certificate>
+            <tns:address phone="029-6234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Kupala</c:street>
+                <c:house>1</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>ANTIBIOTIC</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>Amoxiklav</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>capsule</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>eat</tns:instructions>
+        <tns:expDate>2019-01-01</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a9">
+        <tns:tradeName>ибупрофен</tns:tradeName>
+        <tns:realName>ibuprofen</tns:realName>
+        <tns:pharm name="Medana Pharma">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>ANTI_INFLAMMATORY</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>Doses should be infused over at least 30 minutes. Oral: Initial dose: 200 mg orally every 4 to 6 hours.
+        </tns:instructions>
+        <tns:expDate>2002-09-24</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a10">
+        <tns:tradeName>anyHomeopathyStuff</tns:tradeName>
+        <tns:realName>sugar</tns:realName>
+        <tns:pharm name="HelloWorld">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>HOMEOPATHY</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>eat sugar and forget about vaccination</tns:instructions>
+        <tns:expDate>2100-01-01</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a11">
+        <tns:tradeName>ибупрофен</tns:tradeName>
+        <tns:realName>ibuprofen</tns:realName>
+        <tns:pharm name="Medana Pharma">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>ANTI_INFLAMMATORY</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>Doses should be infused over at least 30 minutes. Oral: Initial dose: 200 mg orally every 4 to 6 hours.
+        </tns:instructions>
+        <tns:expDate>2002-09-24</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a12">
+        <tns:tradeName>ибупрофен</tns:tradeName>
+        <tns:realName>ibuprofen</tns:realName>
+        <tns:pharm name="Medana Pharma">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>ANTI_INFLAMMATORY</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>Doses should be infused over at least 30 minutes. Oral: Initial dose: 200 mg orally every 4 to 6 hours.
+        </tns:instructions>
+        <tns:expDate>2002-09-24</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a13">
+        <tns:tradeName>anyHomeopathyStuff</tns:tradeName>
+        <tns:realName>sugar</tns:realName>
+        <tns:pharm name="HelloWorld">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>HOMEOPATHY</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>eat sugar and forget about vaccination</tns:instructions>
+        <tns:expDate>2100-01-01</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a14">
+        <tns:tradeName>anyHomeopathyStuff</tns:tradeName>
+        <tns:realName>sugar</tns:realName>
+        <tns:pharm name="HelloWorld">
+            <tns:certificate number="123">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2010-01-01</c:expDate>
+                <c:authority>dkfjfd</c:authority>
+            </tns:certificate>
+            <tns:address phone="123-1234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Nesavisimosty</c:street>
+                <c:house>4</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>HOMEOPATHY</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>nurofen</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+            <tns:analog>
+                <tns:analogName>ibuprofen</tns:analogName>
+                <tns:analogPharm>pharmTech</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>liquid</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>eat sugar and forget about vaccination</tns:instructions>
+        <tns:expDate>2100-01-01</tns:expDate>
+    </tns:medicine>
+
+    <tns:medicine id="a15">
+        <tns:tradeName>Amoxicillin</tns:tradeName>
+        <tns:realName>Amoxicillin</tns:realName>
+        <tns:pharm name="BelMed">
+            <tns:certificate number="1001">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2020-01-01</c:expDate>
+                <c:authority>ministry</c:authority>
+            </tns:certificate>
+            <tns:address phone="029-6234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Kupala</c:street>
+                <c:house>1</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>ANTIBIOTIC</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>Amoxiklav</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>capsule</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>eat</tns:instructions>
+        <tns:expDate>2019-01-01</tns:expDate>
+    </tns:medicine>
+    <tns:medicine id="a16">
+        <tns:tradeName>Amoxicillin</tns:tradeName>
+        <tns:realName>Amoxicillin</tns:realName>
+        <tns:pharm name="BelMed">
+            <tns:certificate number="1001">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2020-01-01</c:expDate>
+                <c:authority>ministry</c:authority>
+            </tns:certificate>
+            <tns:address phone="029-6234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Kupala</c:street>
+                <c:house>1</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>ANTIBIOTIC</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>Amoxiklav</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>capsule</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>eat</tns:instructions>
+        <tns:expDate>2019-01-01</tns:expDate>
+    </tns:medicine>
 
 </tns:medicines>
 

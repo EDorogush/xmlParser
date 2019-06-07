@@ -10,6 +10,7 @@ import static org.testng.Assert.assertEquals;
 
 public class PharmacyTest {
   private Medicine expected;
+  private static final String FILE_NAME = "med.xml";
 
   @BeforeClass
   public void setUp() {
@@ -45,36 +46,46 @@ public class PharmacyTest {
   }
 
   @Test
-  public void builderWithXMLSaxParserSucceed() throws CustomException {
+  public void builderWithXMLSaxParsedCorrectMedicine() throws CustomException {
 
-    Pharmacy pharmacy = new Pharmacy.Builder().withXMLSaxParser("med.xml").build();
+    Pharmacy pharmacy = new Pharmacy.Builder().withXMLSaxParser(FILE_NAME).build();
     Medicine actual = pharmacy.find(0);
-    System.out.println(expected.equals(actual));
-    System.out.println(actual.toString());
-
     assertEquals(actual,expected);
 
   }
 
   @Test
-  public void builderWithXMLDomParserSucceed() throws CustomException {
+  public void builderWithXMLDomParsedCorrectMedicine() throws CustomException {
 
-    Pharmacy pharmacy = new Pharmacy.Builder().withXMLDomParser("med.xml").build();
+    Pharmacy pharmacy = new Pharmacy.Builder().withXMLDomParser(FILE_NAME).build();
     Medicine actual = pharmacy.find(0);
-    System.out.println(expected.equals(actual));
-    System.out.println(actual.toString());
-
     assertEquals(actual,expected);
   }
 
   @Test
-  public void builderWithXMLStaxParserSucceed() throws CustomException {
+  public void builderWithXMLStaxParsedCorrectMedicine() throws CustomException {
 
-    Pharmacy pharmacy = new Pharmacy.Builder().withXMLStaxParser("med.xml").build();
+    Pharmacy pharmacy = new Pharmacy.Builder().withXMLStaxParser(FILE_NAME).build();
     Medicine actual = pharmacy.find(0);
-    System.out.println(expected.equals(actual));
-    System.out.println(actual.toString());
-
     assertEquals(actual,expected);
+  }
+
+  @Test
+  public void builderWithXMLSaxParseFull() throws CustomException {
+    Pharmacy pharmacy = new Pharmacy.Builder().withXMLSaxParser(FILE_NAME).build();
+    int actual = pharmacy.findAll().size();
+    assertEquals(actual,16);
+  }
+  @Test
+  public void builderWithXMLDomParseFull() throws CustomException {
+    Pharmacy pharmacy = new Pharmacy.Builder().withXMLDomParser(FILE_NAME).build();
+    int actual = pharmacy.findAll().size();
+    assertEquals(actual,16);
+  }
+  @Test
+  public void builderWithXMLStaxParseFull() throws CustomException {
+    Pharmacy pharmacy = new Pharmacy.Builder().withXMLStaxParser(FILE_NAME).build();
+    int actual = pharmacy.findAll().size();
+    assertEquals(actual,16);
   }
 }

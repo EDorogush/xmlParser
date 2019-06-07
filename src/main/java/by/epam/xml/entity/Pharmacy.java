@@ -43,26 +43,23 @@ public class Pharmacy {
       pharmacy = new Pharmacy();
     }
 
-    public Builder withXMLSaxParser(String fileName) {
+    public Builder withXMLSaxParser(String fileName) throws CustomException{
       SAXParserFactory factory = SAXParserFactory.newInstance();
       factory.setNamespaceAware(true);
       try {
         SAXParser parser = factory.newSAXParser();
         MedicineSaxHandler handler = new MedicineSaxHandler();
-
         parser.parse(new File(fileName), handler);
         pharmacy.meds = handler.findAll();
 
-
-      } catch (ParserConfigurationException | SAXException e) {
-        e.printStackTrace();
-      } catch (Exception e) {
-        e.printStackTrace();
+      } catch (ParserConfigurationException | SAXException | IOException e) {
+        logger.fatal("exception was thrown: {}", e.getMessage());
+        throw new CustomException(String.format("Can't parse xml file: {%s}", e.getMessage()));
       }
       return this;
     }
 
-    public Builder withXMLDomParser(String fileName) {
+    public Builder withXMLDomParser(String fileName) throws CustomException {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       try {
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -70,19 +67,21 @@ public class Pharmacy {
         Element root = document.getDocumentElement();
         pharmacy.meds = new MedicineDomCreator().createList(root);
       } catch (ParserConfigurationException | IOException | SAXException e) {
-        e.printStackTrace();
+        logger.fatal("exception was thrown: {}", e.getMessage());
+        throw new CustomException(String.format("Can't parse xml file: {%s}", e.getMessage()));
       }
       return this;
 
     }
 
-    public Builder withXMLStaxParser(String fileName) {
+    public Builder withXMLStaxParser(String fileName) throws CustomException {
       MedicineStAXParser parser = new MedicineStAXParser();
       try {
         parser.parse(new FileInputStream(fileName));
         pharmacy.meds =  parser.findAll();
       } catch (FileNotFoundException e) {
-        e.printStackTrace();
+        logger.fatal("exception was thrown: {}", e.getMessage());
+        throw new CustomException(String.format("Can't parse xml file: {%s}", e.getMessage()));
       }
       return this;
 

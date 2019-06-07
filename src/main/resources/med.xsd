@@ -11,7 +11,7 @@
     <xs:element name="medicines">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="medicine" type="tns:medicineType" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="medicine" type="tns:medicineType" minOccurs="16" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
