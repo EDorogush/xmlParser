@@ -1,8 +1,11 @@
 package by.epam.xml.entity;
 
+import by.epam.xml.exception.CustomException;
 import by.epam.xml.parser.MedicineDomCreator;
 import by.epam.xml.parser.MedicineSaxHandler;
 import by.epam.xml.parser.MedicineStAXParser;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -20,14 +23,24 @@ import java.util.List;
 
 
 public class Pharmacy {
+  private static final Logger logger = LogManager.getLogger();
   private List<Medicine> meds;
+
+  public List<Medicine> findAll(){
+    return meds;
+  }
+  public Medicine find(int index) throws CustomException{
+    if (index<0 || index > meds.size()){
+      throw new CustomException(String.format("Index must be positive and less them array size: {%d}",meds.size()));
+    }
+    return meds.get(index);
+  }
 
   public static class Builder {
     private Pharmacy pharmacy;
 
     public Builder() {
       pharmacy = new Pharmacy();
-
     }
 
     public Builder withXMLSaxParser(String fileName) {
@@ -73,6 +86,9 @@ public class Pharmacy {
       }
       return this;
 
+    }
+    public Pharmacy build(){
+      return pharmacy;
     }
 
     }

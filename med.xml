@@ -5,6 +5,35 @@
                xmlns:c="http://www.example.com/Certificate"
                xsi:schemaLocation="http://www.example.com/Medicines src/main/resources/med.xsd ">
 
+    <tns:medicine id="a1">
+        <tns:tradeName>Amoxicillin</tns:tradeName>
+        <tns:realName>Amoxicillin</tns:realName>
+        <tns:pharm name="BelMed">
+            <tns:certificate number="1001">
+                <c:issueDate>2010-01-01</c:issueDate>
+                <c:expDate>2020-01-01</c:expDate>
+                <c:authority>ministry</c:authority>
+            </tns:certificate>
+            <tns:address phone="029-6234567">
+                <c:country>Belarus</c:country>
+                <c:city>Minsk</c:city>
+                <c:street>Kupala</c:street>
+                <c:house>1</c:house>
+            </tns:address>
+        </tns:pharm>
+        <tns:group>ANTIBIOTIC</tns:group>
+        <tns:analogs>
+            <tns:analog>
+                <tns:analogName>Amoxiklav</tns:analogName>
+                <tns:analogPharm>some</tns:analogPharm>
+            </tns:analog>
+        </tns:analogs>
+        <tns:releaseForm>capsule</tns:releaseForm>
+        <tns:amount>10</tns:amount>
+        <tns:instructions>eat</tns:instructions>
+        <tns:expDate>2019-01-01</tns:expDate>
+    </tns:medicine>
+
     <tns:medicine id="qwrty123">
         <tns:tradeName>ибупрофен</tns:tradeName>
         <tns:realName>ibuprofen</tns:realName>

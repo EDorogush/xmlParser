@@ -3,6 +3,7 @@ package by.epam.xml.entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
@@ -98,6 +99,36 @@ public class Medicine {
 
   public void setExpDate(LocalDate expDate) {
     this.expDate = expDate;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Medicine)) return false;
+    Medicine medicine = (Medicine) o;
+    boolean b1= (amount == medicine.amount );
+    boolean b2 = (Objects.equals(id, medicine.id) );
+    boolean b3= (Objects.equals(tradeName, medicine.tradeName) );
+    boolean b4 = (Objects.equals(realName, medicine.realName) );
+    boolean b5 = (Objects.equals(pharm, medicine.pharm) );
+
+
+    return amount == medicine.amount &&
+            Objects.equals(id, medicine.id) &&
+            Objects.equals(tradeName, medicine.tradeName) &&
+            Objects.equals(realName, medicine.realName) &&
+            Objects.equals(pharm, medicine.pharm) &&
+            type == medicine.type &&
+            Objects.equals(analogs, medicine.analogs) &&
+            release == medicine.release &&
+            Objects.equals(instructions, medicine.instructions) &&
+            Objects.equals(expDate, medicine.expDate);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, tradeName, realName, pharm, type, analogs, release, amount, instructions, expDate);
   }
 
   @Override

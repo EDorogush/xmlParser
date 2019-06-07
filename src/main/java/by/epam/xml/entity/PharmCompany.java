@@ -1,6 +1,7 @@
 package by.epam.xml.entity;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class PharmCompany {
@@ -30,6 +31,21 @@ public class PharmCompany {
 
   public void setAddress(Address address) {
     this.address = address;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof PharmCompany)) return false;
+    PharmCompany that = (PharmCompany) o;
+    return Objects.equals(name, that.name) &&
+            Objects.equals(certificate, that.certificate) &&
+            Objects.equals(address, that.address);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, certificate, address);
   }
 
   @Override
@@ -90,6 +106,23 @@ public class PharmCompany {
     }
 
     @Override
+    public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof Address)) return false;
+      Address address = (Address) o;
+      return house == address.house &&
+              Objects.equals(country, address.country) &&
+              Objects.equals(sity, address.sity) &&
+              Objects.equals(street, address.street) &&
+              Objects.equals(phone, address.phone);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(country, sity, street, house, phone);
+    }
+
+    @Override
     public String toString() {
       return new StringJoiner(",\n\t\t\t", Address.class.getSimpleName() + "[\n\t\t\t", "]")
               .add("country='" + country + "'")
@@ -137,6 +170,22 @@ public class PharmCompany {
 
     public void setAutority(String autority) {
       this.autority = autority;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof PharmCompanyCertificate)) return false;
+      PharmCompanyCertificate that = (PharmCompanyCertificate) o;
+      return id == that.id &&
+              Objects.equals(issueDate, that.issueDate) &&
+              Objects.equals(expDate, that.expDate) &&
+              Objects.equals(autority, that.autority);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(id, issueDate, expDate, autority);
     }
 
     @Override

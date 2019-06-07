@@ -4,11 +4,6 @@
            xmlns:tns="http://www.example.com/Medicines"
            targetNamespace="http://www.example.com/Medicines"
            elementFormDefault="qualified">
-
-
-    <!--xmlns:tns="http://www.example.com/Medicines"-->
-
-
     <xs:import namespace="http://www.example.com/Certificate"
                schemaLocation="certificate.xsd"/>
 
@@ -38,12 +33,11 @@
             <xs:element name="group">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:enumeration value="antibiotic"/>
-                        <xs:enumeration value="antidepressant"/>
-                        <xs:enumeration value="antihistamine"/>
-                        <xs:enumeration value="homeopathy"/>
-                        <xs:enumeration value="anti_inflammatory"/>
-
+                        <xs:enumeration value="ANTIBIOTIC"/>
+                        <xs:enumeration value="ANTIDEPRESSANT"/>
+                        <xs:enumeration value="ANTIHISTAMINE"/>
+                        <xs:enumeration value="HOMEOPATHY"/>
+                        <xs:enumeration value="ANTI_INFLAMMATORY"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -79,36 +73,4 @@
         <xs:attribute name="id" type="xs:ID" use="required"/>
     </xs:complexType>
 
-    <!--<xs:complexType name="certificate">
-        <xs:sequence>
-            <xs:element name="number" >
-                <xs:simpleType>
-                    <xs:restriction base="xs:positiveInteger"/>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="issueDate" type="xs:date"/>
-            <xs:element name="expDate" type="xs:date"/>
-            <xs:element name="authority" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
--->
-    <!--    <xs:complexType name="addressType">-->
-    <!--        <xs:sequence>-->
-    <!--            <xs:element name="country" type="xs:string"/>-->
-    <!--            <xs:element name="city" type="xs:string"/>-->
-    <!--            <xs:element name="street" type="xs:string"/>-->
-    <!--            <xs:element name="house" type="xs:positiveInteger"/>-->
-    <!--        </xs:sequence>-->
-    <!--        <xs:attribute name="phone" type="tns:phoneType"/>-->
-    <!--    </xs:complexType>-->
-
-    <!--    <xs:simpleType name="phoneType">-->
-    <!--        <xs:restriction base="xs:string">-->
-    <!--            <xs:pattern value="[0-9]{3}-[0-9]{7}"/>-->
-    <!--        </xs:restriction>-->
-    <!--    </xs:simpleType>-->
-
-
-
-
-        </xs:schema>
+</xs:schema>
