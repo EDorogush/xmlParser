@@ -1,5 +1,6 @@
 package by.epam.xml.entity;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
+@XmlRootElement
 public class Medicine {
   private String id;
   private String tradeName;
@@ -43,7 +45,6 @@ public class Medicine {
   public void setRealName(String realName) {
     this.realName = realName;
   }
-
 
   public PharmCompany getPharm() {
     return pharm;

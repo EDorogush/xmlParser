@@ -50,7 +50,6 @@ public class PharmacyTest {
 
     Pharmacy pharmacy = new Pharmacy.Builder().withXMLSaxParser(FILE_NAME).build();
     Medicine actual = pharmacy.find(0);
-    System.out.println(actual.toString());
     assertEquals(actual,expected);
 
   }

@@ -1,8 +1,10 @@
 package by.epam.xml.entity;
 
+
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.StringJoiner;
+
 
 public class PharmCompany {
   private String name;

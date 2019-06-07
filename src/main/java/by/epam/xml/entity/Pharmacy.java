@@ -21,18 +21,18 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
-
 public class Pharmacy {
   private static final Logger logger = LogManager.getLogger();
   private List<Medicine> meds;
 
-  public List<Medicine> findAll(){
+  public List<Medicine> findAll() {
     return meds;
   }
-  public Medicine find(int index) throws CustomException{
-    if (index<0 || index > meds.size()){
-      logger.error("wrong index: {} ",index);
-      throw new CustomException(String.format("Index must be positive and less them array size: {%d}",meds.size()));
+
+  public Medicine find(int index) throws CustomException {
+    if (index < 0 || index > meds.size()) {
+      logger.error("Wrong index: {} ", index);
+      throw new CustomException(String.format("Index must be positive and less them array size: {%d}", meds.size()));
     }
     return meds.get(index);
   }
@@ -44,7 +44,7 @@ public class Pharmacy {
       pharmacy = new Pharmacy();
     }
 
-    public Builder withXMLSaxParser(String fileName) throws CustomException{
+    public Builder withXMLSaxParser(String fileName) throws CustomException {
       SAXParserFactory factory = SAXParserFactory.newInstance();
       factory.setNamespaceAware(true);
       try {
@@ -79,7 +79,7 @@ public class Pharmacy {
       MedicineStAXParser parser = new MedicineStAXParser();
       try {
         parser.parse(new FileInputStream(fileName));
-        pharmacy.meds =  parser.findAll();
+        pharmacy.meds = parser.findAll();
       } catch (FileNotFoundException e) {
         logger.fatal("exception was thrown: {}", e.getMessage());
         throw new CustomException(String.format("Can't parse xml file: {%s}", e.getMessage()));
@@ -87,12 +87,12 @@ public class Pharmacy {
       return this;
 
     }
-    public Pharmacy build(){
+
+    public Pharmacy build() {
       return pharmacy;
     }
 
-    }
-
+  }
 
 
 }
