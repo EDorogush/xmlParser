@@ -9,8 +9,10 @@ import org.xml.sax.helpers.DefaultHandler;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class MedicineSaxHandler extends DefaultHandler {
+  private static final String  PHONE_DEFAULT = "undefined";
   private List<Medicine> meds = new ArrayList<>();
   private Medicine curr = null;
   private TagGroup currentGroup = null;
@@ -34,7 +36,8 @@ public class MedicineSaxHandler extends DefaultHandler {
         curr.getPharm().getCertificate().setId(Integer.parseInt(attributes.getValue(0)));
         break;
       case TNS_ADDRESS:
-        curr.getPharm().getAddress().setPhone(attributes.getValue(0));
+        Optional<String> phone = Optional.ofNullable(attributes.getValue(0));
+        curr.getPharm().getAddress().setPhone(phone.orElse(PHONE_DEFAULT));
         break;
       case TNS_ANALOG:
         curr.addAnalog(new Medicine());

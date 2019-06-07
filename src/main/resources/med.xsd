@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:cmn="http://www.example.com/Certificate"
+<xs:schema xmlns:cmn="http://www.example.com/Complex"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:tns="http://www.example.com/Medicines"
            targetNamespace="http://www.example.com/Medicines"
            elementFormDefault="qualified">
-    <xs:import namespace="http://www.example.com/Certificate"
-               schemaLocation="certificate.xsd"/>
+    <xs:import namespace="http://www.example.com/Complex"
+               schemaLocation="complex.xsd"/>
 
 
     <xs:element name="medicines">
@@ -23,7 +23,7 @@
             <xs:element name="pharm">
                 <xs:complexType>
                     <xs:all>
-                        <xs:element name="certificate" type="cmn:Certificate"/>
+                        <xs:element name="certificate" type="cmn:certificate"/>
                         <xs:element name="address" type="cmn:addressType"/>
                     </xs:all>
                     <xs:attribute name="name" type="xs:string" use="required"/>
@@ -59,10 +59,10 @@
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="liquid"/>
-                        <xs:enumeration value="pills"/>
+                        <xs:enumeration value="pill"/>
                         <xs:enumeration value="capsule"/>
                         <xs:enumeration value="suspension"/>
-                        <xs:enumeration value="drops"/>
+                        <xs:enumeration value="drop"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>

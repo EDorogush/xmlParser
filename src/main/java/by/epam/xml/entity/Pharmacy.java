@@ -31,6 +31,7 @@ public class Pharmacy {
   }
   public Medicine find(int index) throws CustomException{
     if (index<0 || index > meds.size()){
+      logger.error("wrong index: {} ",index);
       throw new CustomException(String.format("Index must be positive and less them array size: {%d}",meds.size()));
     }
     return meds.get(index);

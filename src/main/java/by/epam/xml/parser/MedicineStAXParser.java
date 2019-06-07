@@ -12,9 +12,11 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 public class MedicineStAXParser {
+  private static final String  PHONE_DEFAULT = "undefined";
   private List<Medicine> meds = new ArrayList<>();
   private Medicine curr = null;
   private TagGroup currentGroup = null;
@@ -69,7 +71,8 @@ public class MedicineStAXParser {
         curr.getPharm().getCertificate().setId(Integer.parseInt(reader.getAttributeValue(0)));
         break;
       case TNS_ADDRESS:
-        curr.getPharm().getAddress().setPhone(reader.getAttributeValue(0));
+        Optional<String> phone = Optional.ofNullable(reader.getAttributeValue(0));
+        curr.getPharm().getAddress().setPhone(phone.orElse(PHONE_DEFAULT));
         break;
       case TNS_ANALOG:
         curr.addAnalog(new Medicine());

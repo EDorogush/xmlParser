@@ -107,13 +107,6 @@ public class Medicine {
     if (this == o) return true;
     if (!(o instanceof Medicine)) return false;
     Medicine medicine = (Medicine) o;
-    boolean b1= (amount == medicine.amount );
-    boolean b2 = (Objects.equals(id, medicine.id) );
-    boolean b3= (Objects.equals(tradeName, medicine.tradeName) );
-    boolean b4 = (Objects.equals(realName, medicine.realName) );
-    boolean b5 = (Objects.equals(pharm, medicine.pharm) );
-
-
     return amount == medicine.amount &&
             Objects.equals(id, medicine.id) &&
             Objects.equals(tradeName, medicine.tradeName) &&
@@ -141,7 +134,7 @@ public class Medicine {
             .add("type=" + type)
             .add("analogs=" + analogs.stream().map(Medicine::getTradeName).collect(Collectors.toList()))
             .add("release=" + release)
-            .add("amount="+amount)
+            .add("amount=" + amount)
             .add("instructions='" + instructions + "'")
             .add("expDate=" + expDate)
             .toString();

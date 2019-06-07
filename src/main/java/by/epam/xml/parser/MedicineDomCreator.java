@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MedicineDomCreator {
+  private static final String PHONE_DEFAULT = "undefined";
 
   public List<Medicine> createList(Element root) {
     List<Medicine> medicines = new ArrayList<>();
@@ -61,7 +62,7 @@ public class MedicineDomCreator {
     //filling pharmAddress
     PharmCompany.Address address = pharm.getAddress();
     Element addressElement = getBaby(pharmElement, "tns:address");
-    address.setPhone(addressElement.getAttribute("phone"));
+    address.setPhone(parseOptionalAttribute(addressElement,"phone"));
     address.setHouse(Integer.parseInt(getBabyValue(addressElement, "c:house")));
     address.setSity(getBabyValue(addressElement, "c:city"));
     address.setStreet(getBabyValue(addressElement, "c:street"));
@@ -90,6 +91,11 @@ public class MedicineDomCreator {
     Node node = child.getFirstChild();
     String value = node.getNodeValue();
     return value;
+  }
+
+  private String parseOptionalAttribute(Element parent, String attrName) {
+    String phone = parent.getAttribute(attrName);
+    return phone.equals("") ? PHONE_DEFAULT : phone;
   }
 
 }
